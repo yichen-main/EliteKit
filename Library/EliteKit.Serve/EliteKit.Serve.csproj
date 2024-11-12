@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Version>8.11.1</Version>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
+    <NoWarn>1701;1702;1705;1591</NoWarn>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <GenerateAssemblyFileVersionAttribute>False</GenerateAssemblyFileVersionAttribute>
+    <PackageIcon>logo-elite.png</PackageIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\Image\logo-elite.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" />
+    <PackageReference Include="ClosedXML" />
+    <PackageReference Include="Coravel" />
+    <PackageReference Include="FastEndpoints" />
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" />
+    <PackageReference Include="Serilog" />
+    <PackageReference Include="YamlDotNet" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Autofac" />
+    <Using Include="Autofac.Extensions.DependencyInjection" />
+    <Using Include="Coravel.Invocable" />
+    <Using Include="Coravel.Scheduling.Schedule.Interfaces" />
+    <Using Include="FastEndpoints" />
+    <Using Include="FluentValidation" />
+    <Using Include="Serilog" />
+    <Using Include="YamlDotNet.RepresentationModel" />
+    <Using Include="YamlDotNet.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Microsoft.AspNetCore.Http" />
+    <Using Include="Microsoft.AspNetCore.Mvc" />
+    <Using Include="Microsoft.Extensions.Configuration" />
+    <Using Include="Microsoft.Extensions.DependencyInjection" />
+    <Using Include="Microsoft.Extensions.Hosting" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="System.Collections.Concurrent" />
+    <Using Include="System.ComponentModel" />
+    <Using Include="System.Globalization" />
+    <Using Include="System.Net" />
+    <Using Include="System.Net.NetworkInformation" />
+    <Using Include="System.Net.Sockets" />
+    <Using Include="System.Reflection" />
+    <Using Include="System.Runtime.CompilerServices" />
+    <Using Include="System.Security.Cryptography" />
+    <Using Include="System.Text" />
+    <Using Include="System.Text.Encodings.Web" />
+    <Using Include="System.Text.Json" />
+    <Using Include="System.Text.Json.Nodes" />
+    <Using Include="System.Text.Json.Serialization" />
+    <Using Include="System.Web" />
+    <Using Include="System.Xml" />
+    <Using Include="System.Xml.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="EliteKit.Serve.Architects.Grindstones.Attributes" />
+    <Using Include="EliteKit.Serve.Architects.Grindstones.Composers" />
+    <Using Include="EliteKit.Serve.Architects.Grindstones.Expansions" />
+    <Using Include="EliteKit.Serve.Architects.Grindstones.Inventories" />
+    <Using Include="EliteKit.Serve.Architects.Grindstones.Quarterlies" />
+    <Using Include="EliteKit.Serve.Architects.Grindstones.Substances" />
+  </ItemGroup>
+</Project>

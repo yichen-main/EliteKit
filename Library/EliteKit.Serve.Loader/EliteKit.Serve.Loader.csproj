@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Version>8.11.1</Version>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
+    <NoWarn>1701;1702;1705;1591</NoWarn>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <GenerateAssemblyFileVersionAttribute>False</GenerateAssemblyFileVersionAttribute>
+    <PackageIcon>logo-elite.png</PackageIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\Image\logo-elite.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EliteKit.Serve\EliteKit.Serve.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" />
+    <PackageReference Include="Serilog.Sinks.Console" />
+    <PackageReference Include="Serilog.Sinks.Seq" />
+    <PackageReference Include="SoapCore" />
+    <PackageReference Include="Spectre.Console" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Spectre.Console" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Microsoft.AspNetCore.Builder" />
+    <Using Include="Microsoft.AspNetCore.Routing" />
+    <Using Include="Microsoft.AspNetCore.Server.Kestrel.Core" />
+    <Using Include="Microsoft.Extensions.Configuration" />
+    <Using Include="Microsoft.Extensions.DependencyInjection" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="System.Net" />
+    <Using Include="System.Net.NetworkInformation" />
+    <Using Include="System.Reflection" />
+    <Using Include="System.Text" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="EliteKit.Serve.Architects.Grindstones.Attributes" />
+    <Using Include="EliteKit.Serve.Architects.Grindstones.Composers" />
+    <Using Include="EliteKit.Serve.Architects.Grindstones.Expansions" />
+    <Using Include="EliteKit.Serve.Architects.Grindstones.Quarterlies" />
+    <Using Include="EliteKit.Serve.Architects.Grindstones.Substances" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="EliteKit.Serve.Loader.Architects.Grindstones.Composers" />
+  </ItemGroup>
+</Project>

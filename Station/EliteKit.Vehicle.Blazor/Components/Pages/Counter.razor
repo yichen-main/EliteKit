@@ -1,0 +1,11 @@
+﻿@page "/counter"
+@rendermode InteractiveServer //渲染模式：互動式
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+<h3>@Message</h3>
+
+<p role="status">Current count: @currentCount</p>
+<input @bind-value="Message"/>
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
