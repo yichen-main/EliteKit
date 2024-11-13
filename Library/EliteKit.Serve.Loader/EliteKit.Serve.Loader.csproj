@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Version>8.11.1</Version>
-    <TargetFramework>net8.0</TargetFramework>
+    <Version>9.11.1</Version>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -12,10 +12,10 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <GenerateAssemblyFileVersionAttribute>False</GenerateAssemblyFileVersionAttribute>
-    <PackageIcon>logo-elite.png</PackageIcon>
+    <PackageIcon>Logo.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\Image\logo-elite.png">
+    <None Include="..\..\Image\Logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
@@ -24,36 +24,68 @@
     <ProjectReference Include="..\EliteKit.Serve\EliteKit.Serve.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" />
-    <PackageReference Include="Serilog.Sinks.Console" />
-    <PackageReference Include="Serilog.Sinks.Seq" />
-    <PackageReference Include="SoapCore" />
     <PackageReference Include="Spectre.Console" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
   </ItemGroup>
   <ItemGroup>
+    <Using Include="Autofac" />
+    <Using Include="Autofac.Extensions.DependencyInjection" />
+    <Using Include="Coravel" />
+    <Using Include="FastEndpoints" />
+    <Using Include="Serilog" />
+    <Using Include="Serilog.Events" />
     <Using Include="Spectre.Console" />
   </ItemGroup>
   <ItemGroup>
+    <Using Include="Microsoft.AspNetCore.Authentication" />
     <Using Include="Microsoft.AspNetCore.Builder" />
+    <Using Include="Microsoft.AspNetCore.Diagnostics" />
+    <Using Include="Microsoft.AspNetCore.Hosting" />
+    <Using Include="Microsoft.AspNetCore.Http" />
+    <Using Include="Microsoft.AspNetCore.HttpOverrides" />
+    <Using Include="Microsoft.AspNetCore.Localization" />
+    <Using Include="Microsoft.AspNetCore.Mvc.ApplicationModels" />
+    <Using Include="Microsoft.AspNetCore.Mvc.Controllers" />
+    <Using Include="Microsoft.AspNetCore.RateLimiting" />
     <Using Include="Microsoft.AspNetCore.Routing" />
     <Using Include="Microsoft.AspNetCore.Server.Kestrel.Core" />
     <Using Include="Microsoft.Extensions.Configuration" />
     <Using Include="Microsoft.Extensions.DependencyInjection" />
+    <Using Include="Microsoft.Extensions.DependencyInjection.Extensions" />
+    <Using Include="Microsoft.Extensions.Hosting" />
+    <Using Include="Microsoft.Extensions.Localization" />
+    <Using Include="Microsoft.Extensions.Logging" />
+    <Using Include="Microsoft.Extensions.Logging.Console" />
+    <Using Include="Microsoft.Extensions.Options" />
+    <Using Include="Microsoft.Extensions.Primitives" />
   </ItemGroup>
   <ItemGroup>
+    <Using Include="System.Collections.Frozen" />
+    <Using Include="System.Diagnostics" />
+    <Using Include="System.Globalization" />
+    <Using Include="System.IdentityModel.Tokens.Jwt" />
     <Using Include="System.Net" />
     <Using Include="System.Net.NetworkInformation" />
+    <Using Include="System.Net.Sockets" />
     <Using Include="System.Reflection" />
+    <Using Include="System.Security.Claims" />
+    <Using Include="System.Security.Authentication" />
     <Using Include="System.Text" />
+    <Using Include="System.Text.Encodings.Web" />
+    <Using Include="System.Text.Json" />
+    <Using Include="System.Threading.RateLimiting" />
   </ItemGroup>
   <ItemGroup>
-    <Using Include="EliteKit.Serve.Architects.Grindstones.Attributes" />
-    <Using Include="EliteKit.Serve.Architects.Grindstones.Composers" />
-    <Using Include="EliteKit.Serve.Architects.Grindstones.Expansions" />
-    <Using Include="EliteKit.Serve.Architects.Grindstones.Quarterlies" />
-    <Using Include="EliteKit.Serve.Architects.Grindstones.Substances" />
+    <Using Include="EliteKit.Serve.Abstracts.ModuleServices" />
+    <Using Include="EliteKit.Serve.Attributes.SystemMaintainers" />
+    <Using Include="EliteKit.Serve.Functions.ModLaunchers" />
+    <Using Include="EliteKit.Serve.Interfaces.SystemMaintainers" />
+  </ItemGroup>
+  <ItemGroup>    
+    <Using Include="EliteKit.Serve.Loader.Functions.StructuralFrames" />
   </ItemGroup>
   <ItemGroup>
-    <Using Include="EliteKit.Serve.Loader.Architects.Grindstones.Composers" />
+    <Folder Include="Abstracts\" />
+    <Folder Include="Repositories\GlobalParameters\" />
   </ItemGroup>
 </Project>

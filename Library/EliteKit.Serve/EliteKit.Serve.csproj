@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Version>8.11.1</Version>
-    <TargetFramework>net8.0</TargetFramework>
+    <Version>9.11.1</Version>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -12,23 +12,23 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <GenerateAssemblyFileVersionAttribute>False</GenerateAssemblyFileVersionAttribute>
-    <PackageIcon>logo-elite.png</PackageIcon>
+    <PackageIcon>Logo.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="..\..\Image\logo-elite.png">
+    <None Include="..\..\Image\Logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" />
-    <PackageReference Include="ClosedXML" />
     <PackageReference Include="Coravel" />
     <PackageReference Include="FastEndpoints" />
     <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" />
-    <PackageReference Include="Serilog" />
-    <PackageReference Include="YamlDotNet" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" />
+    <PackageReference Include="Serilog.Sinks.Console" />
+    <PackageReference Include="Serilog.Sinks.Seq" />
   </ItemGroup>
   <ItemGroup>
     <Using Include="Autofac" />
@@ -38,12 +38,13 @@
     <Using Include="FastEndpoints" />
     <Using Include="FluentValidation" />
     <Using Include="Serilog" />
-    <Using Include="YamlDotNet.RepresentationModel" />
-    <Using Include="YamlDotNet.Serialization" />
-  </ItemGroup>
-  <ItemGroup>
+  </ItemGroup>  
+  <ItemGroup>    
+    <Using Include="Microsoft.AspNetCore.Builder" />
     <Using Include="Microsoft.AspNetCore.Http" />
     <Using Include="Microsoft.AspNetCore.Mvc" />
+    <Using Include="Microsoft.AspNetCore.Routing" />
+    <Using Include="Microsoft.AspNetCore.Server.Kestrel.Core" />
     <Using Include="Microsoft.Extensions.Configuration" />
     <Using Include="Microsoft.Extensions.DependencyInjection" />
     <Using Include="Microsoft.Extensions.Hosting" />
@@ -57,6 +58,7 @@
     <Using Include="System.Net.Sockets" />
     <Using Include="System.Reflection" />
     <Using Include="System.Runtime.CompilerServices" />
+    <Using Include="System.Runtime.InteropServices" />
     <Using Include="System.Security.Cryptography" />
     <Using Include="System.Text" />
     <Using Include="System.Text.Encodings.Web" />
@@ -68,11 +70,15 @@
     <Using Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Using Include="EliteKit.Serve.Architects.Grindstones.Attributes" />
-    <Using Include="EliteKit.Serve.Architects.Grindstones.Composers" />
-    <Using Include="EliteKit.Serve.Architects.Grindstones.Expansions" />
-    <Using Include="EliteKit.Serve.Architects.Grindstones.Inventories" />
-    <Using Include="EliteKit.Serve.Architects.Grindstones.Quarterlies" />
-    <Using Include="EliteKit.Serve.Architects.Grindstones.Substances" />
+    <Using Include="EliteKit.Serve.Abstracts.BottomStructures" />
+    <Using Include="EliteKit.Serve.Abstracts.ModuleServices" />
+    <Using Include="EliteKit.Serve.Attributes.SystemMaintainers" />
+    <Using Include="EliteKit.Serve.Contracts.FileApplications" />
+    <Using Include="EliteKit.Serve.Contracts.WebApplications" />
+    <Using Include="EliteKit.Serve.Enumerates.FileClassifications" />
+    <Using Include="EliteKit.Serve.Expansions.CommonExamples" />
+    <Using Include="EliteKit.Serve.Functions.ModLaunchers" />
+    <Using Include="EliteKit.Serve.Functions.UniversalLayouts" />
+    <Using Include="EliteKit.Serve.Interfaces.SystemMaintainers" />
   </ItemGroup>
 </Project>
