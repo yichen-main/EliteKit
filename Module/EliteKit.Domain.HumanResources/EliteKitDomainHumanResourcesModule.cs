@@ -1,15 +1,15 @@
-﻿using EliteKit.Serve.Abstracts.ModuleServices;
-using EliteKit.Serve.Attributes.SystemMaintainers;
-using EliteKit.Serve.Functions.ModLaunchers;
+﻿using EliteKit.Infrastructure.Core;
+using EliteKit.Infrastructure.Core.Abstracts.BottomStructures;
+using EliteKit.Infrastructure.Core.Attributes.DependentModules;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EliteKit.Domain.HumanResources;
 
-[DependsOn(typeof(EliteKitServeModule))]
-public sealed class EliteKitDomainHumanResourcesModule : BaseModule<EliteKitDomainHumanResourcesModule>
+[DependsOn(typeof(EliteKitInfrastructureCoreModule))]
+public sealed class EliteKitDomainHumanResourcesModule : ModuleBase<EliteKitDomainHumanResourcesModule>
 {
     public override void ConfigureServices(IServiceCollection services)
     {
-        
+
     }
 }

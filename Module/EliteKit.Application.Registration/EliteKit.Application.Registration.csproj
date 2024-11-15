@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\EliteKit.Infrastructure.Core\EliteKit.Infrastructure.Core.csproj" />
+    <ProjectReference Include="..\EliteKit.Domain.HumanResources\EliteKit.Domain.HumanResources.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Exchanges\" />
-  </ItemGroup>
+
 </Project>

@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Library\EliteKit.Serve.Loader\EliteKit.Serve.Loader.csproj" />
-      <ProjectReference Include="..\..\Module\EliteKit.Domain.HumanResources\EliteKit.Domain.HumanResources.csproj" />
+      <ProjectReference Include="..\..\Module\EliteKit.Application.Registration\EliteKit.Application.Registration.csproj" />
+      <ProjectReference Include="..\..\Module\EliteKit.Infrastructure.Loader\EliteKit.Infrastructure.Loader.csproj" />
     </ItemGroup>
 
 </Project>
