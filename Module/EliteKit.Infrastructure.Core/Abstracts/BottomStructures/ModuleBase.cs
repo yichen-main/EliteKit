@@ -1,11 +1,13 @@
 ﻿namespace EliteKit.Infrastructure.Core.Abstracts.BottomStructures;
 public abstract class ModuleBase<T> : Autofac.Module, IModularization where T : IModularization
 {
+    public abstract void ConfigureServices(IServiceCollection services);
     protected override void Load(ContainerBuilder builder)
     {
         try
         {
-            var type = typeof(T);
+            var type = typeof(T).SetRootModule();
+            DefaultTypeMap.MatchNamesWithUnderscores = true;
 
             builder.RegisterAssemblyTypes(type.Assembly).Where(x =>
             typeof(ControllerBase).IsAssignableFrom(x)).AsSelf().InstancePerLifetimeScope();
@@ -103,5 +105,4 @@ public abstract class ModuleBase<T> : Autofac.Module, IModularization where T : 
             e.Fatal(typeof(T));
         }
     }
-    public abstract void ConfigureServices(IServiceCollection services);
 }

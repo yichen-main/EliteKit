@@ -1,6 +1,18 @@
 ﻿namespace EliteKit.Infrastructure.Core.Expansions.CommonExamples;
 public static class TextExpand
 {
+    public static string Join(this char delimiter, params IEnumerable<string> values)
+    {
+        var isFirst = true;
+        StringBuilder builder = new();
+        foreach (var value in values)
+        {
+            if (!isFirst) builder.Append(delimiter);
+            builder.Append(value);
+            isFirst = false;
+        }
+        return builder.ToString();
+    }
     public static string LetConvertPath(this string input) => input.ToSnakeCase('-');
     public static string ToSnakeCase(this string input, in char delimiter = '_')
     {

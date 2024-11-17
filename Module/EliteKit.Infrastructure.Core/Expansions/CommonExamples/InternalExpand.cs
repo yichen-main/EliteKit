@@ -35,5 +35,4 @@ public static class InternalExpand
         }
     }
     public static ConcurrentDictionary<string, Dictionary<string, string>> Dialects { get; } = [];
-    public static ConfigurationManager ConfigurationManager { get; set; } = null!;
 }

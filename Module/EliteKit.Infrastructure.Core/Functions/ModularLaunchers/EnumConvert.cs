@@ -1,4 +1,4 @@
-﻿namespace EliteKit.Infrastructure.Core.Functions.ModLaunchers;
+﻿namespace EliteKit.Infrastructure.Core.Functions.ModularLaunchers;
 public sealed class EnumConvert : JsonConverter<Enum>
 {
     public override void Write(Utf8JsonWriter writer, Enum value, JsonSerializerOptions options)

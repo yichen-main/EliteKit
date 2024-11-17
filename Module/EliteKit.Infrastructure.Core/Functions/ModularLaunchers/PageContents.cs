@@ -1,4 +1,4 @@
-﻿namespace EliteKit.Infrastructure.Core.Functions.ModLaunchers;
+﻿namespace EliteKit.Infrastructure.Core.Functions.ModularLaunchers;
 public sealed class PageContents<T> : List<T>
 {
     public PageContents(in IEnumerable<T> sources, in int currentPage, in int pageSize)

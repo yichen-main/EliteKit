@@ -1,7 +1,9 @@
 ﻿using EliteKit.Infrastructure.Core.Abstracts.BottomStructures;
 using EliteKit.Infrastructure.Core.Documents.AppSettings;
 using EliteKit.Infrastructure.Core.Expansions.CommonExamples;
+using EliteKit.Infrastructure.Core.Functions.ModularLaunchers;
 using EliteKit.Infrastructure.Core.Functions.UniversalLayouts;
+using EliteKit.Infrastructure.Loader.Functions.MiddlePipelines;
 using EliteKit.Infrastructure.Loader.Functions.StructuralFrames;
 
 namespace EliteKit.Infrastructure.Loader.Abstracts.StructureBuilders;
@@ -19,7 +21,6 @@ public abstract class BuildServerFactory<T> : ModuleBase<T> where T : IModulariz
         builder.Services.Configure<HostInformation>(builder.Configuration.GetSection(nameof(HostInformation)));
         builder.Services.Configure<ServiceTerritory>(builder.Configuration.GetSection(nameof(ServiceTerritory)));
         builder.Services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
-        InternalExpand.ConfigurationManager = builder.Configuration;
         builder.Services.Configure<RequestLocalizationOptions>(x =>
         {
             List<CultureInfo> cultureInfos = [];
@@ -33,33 +34,60 @@ public abstract class BuildServerFactory<T> : ModuleBase<T> where T : IModulariz
                 x.RequestCultureProviders.Insert(default, new AcceptLanguageHeaderRequestCultureProvider());
             }
         });
-        builder.Services.AddControllers();
+        builder.Services.AddScheduler();
+        builder.Services.AddHttpClient();
+        builder.Services.AddProblemDetails();
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddExceptionHandler<ExceptionMiddle>();
+        builder.Host.ConfigureHostOptions(x =>
+        {
+            x.ServicesStopConcurrently = true;
+            x.ServicesStartConcurrently = true;
+            x.ShutdownTimeout = TimeSpan.FromSeconds(30);
+        }).UseSystemd();
+        builder.Services.ConfigureHttpJsonOptions(x =>
+        {
+            x.SerializerOptions.Converters.Add(new DateConvert());
+            x.SerializerOptions.Converters.Add(new EnumConvert());
+            x.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        });
+        builder.Services.AddControllers(x =>
+        {
+            x.ReturnHttpNotAcceptable = true;
+        }).ConfigureApiBehaviorOptions(x =>
+        {
+            x.SuppressModelStateInvalidFilter = default;
+        }).AddMvcOptions(x => x.Conventions.Add(new ModelConvention())).AddControllersAsServices();
         builder.Services.AddLocalization();
         builder.Services.AddResponseCaching().AddMemoryCache();
         builder.Services.AddSingleton<IStringLocalizerFactory>(x => new DialectFactory());
         builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
         builder.Host.ConfigureContainer<ContainerBuilder>((context, builder) =>
         {
-            foreach (var type in assembly.GetTypes().Where(x =>
+            List<Type> loadedModules = [];
+            foreach (var moduleType in assembly.GetTypes().Where(x =>
             {
                 return typeof(Autofac.Module).IsAssignableFrom(x) && !x.IsAbstract && !x.IsInterface;
-            })) LoadModule(type);
-            void LoadModule(in Type type)
+            })) MountProject(moduleType);
+            void MountProject(in Type type)
             {
-                if (LoadedModules.Contains(type)) return;
+                if (loadedModules.Contains(type)) return;
                 var dependsOn = type.GetCustomAttribute<DependsOnAttribute>();
                 if (dependsOn is not null)
                 {
-                    foreach (var dependency in dependsOn.Dependencies) LoadModule(dependency);
+                    foreach (var dependency in dependsOn.Dependencies) MountProject(dependency);
                 }
                 var module = Activator.CreateInstance(type) as Autofac.Module;
                 if (module is not null)
                 {
                     builder.RegisterModule(module);
-                    LoadedModules.Add(type);
+                    loadedModules.Add(type);
                 }
             }
         });
+
+        IList<(string tag, int port, bool enabled, string description)> listenBanners = [];
         builder.WebHost.UseKestrel(x =>
         {
             List<ListenInfo> endpoints = [];
@@ -92,9 +120,8 @@ public abstract class BuildServerFactory<T> : ModuleBase<T> where T : IModulariz
                                 x.ListenAnyIP(endpoint.Port);
                                 break;
                         }
-                        ListenBanners.Add((endpoint.Name, endpoint.Port, true, "main entrance"));
+                        listenBanners.Add((endpoint.Name, endpoint.Port, true, "main entrance"));
                     }
-                    else PortExisted = true;
                 }
             }
             Display = default;
@@ -110,6 +137,7 @@ public abstract class BuildServerFactory<T> : ModuleBase<T> where T : IModulariz
                 .WriteTo.Console().WriteTo.Seq(seq.Endpoint, apiKey: seq.ApiKey).CreateLogger();
             }
         });
+
         var result = builder.Build();
         await signalAsync.ConfigureAwait(false);
         if (Missions.TryGetValue(nameof(ListenInfo), out var mission)) await mission.ConfigureAwait(false);
@@ -120,7 +148,7 @@ public abstract class BuildServerFactory<T> : ModuleBase<T> where T : IModulariz
             table.AddColumn(new TableColumn("[bold chartreuse3]Port number[/]").LeftAligned());
             table.AddColumn(new TableColumn("[bold chartreuse3]Service enabled[/]").LeftAligned());
             table.AddColumn(new TableColumn("[bold chartreuse3]Description[/]").LeftAligned());
-            foreach (var (tag, port, enabled, description) in ListenBanners)
+            foreach (var (tag, port, enabled, description) in listenBanners)
             {
                 table.AddRow($"[bold]{tag}[/]", $"[bold]{port.ToString(CultureInfo.InvariantCulture)}[/]",
                     $"[bold]{enabled}[/]", $"[bold]{description}[/]");
@@ -183,9 +211,6 @@ public abstract class BuildServerFactory<T> : ModuleBase<T> where T : IModulariz
         }
         return Run(result);
     }
-    public bool PortExisted { get; private set; }
-    public IList<(string tag, int port, bool enabled, string description)> ListenBanners { get; private set; } = [];
-    Dictionary<string, Task> Missions { get; } = new Dictionary<string, Task>(StringComparer.Ordinal);
     record ListenInfo(string Name, int Port, Action<ListenOptions>? ListenOptions);
-    List<Type> LoadedModules { get; set; } = [];
+    Dictionary<string, Task> Missions { get; } = new Dictionary<string, Task>(StringComparer.Ordinal);
 }

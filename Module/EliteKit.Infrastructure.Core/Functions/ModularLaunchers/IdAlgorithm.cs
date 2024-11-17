@@ -1,4 +1,4 @@
-﻿namespace EliteKit.Infrastructure.Core.Functions.ModLaunchers;
+﻿namespace EliteKit.Infrastructure.Core.Functions.ModularLaunchers;
 public readonly ref struct IdAlgorithm
 {
     static long machineId;

@@ -67,6 +67,12 @@
           "Microsoft.Extensions.Hosting": "9.0.0"
         }
       },
+      "Microsoft.Extensions.Localization.Abstractions": {
+        "type": "Direct",
+        "requested": "[9.0.0, )",
+        "resolved": "9.0.0",
+        "contentHash": "wc7PaRhPOnio5Csj80b3UgBWA5l6bp28EhGem7gtfpVopcwbkfPb2Sk8Cu6eBnIW3ZNf1YUgYJzwtjzZEM8+iw=="
+      },
       "Npgsql.NodaTime": {
         "type": "Direct",
         "requested": "[8.0.5, )",

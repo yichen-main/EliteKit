@@ -392,6 +392,7 @@
           "FastEndpoints": "[5.31.0, )",
           "MediatR": "[12.4.1, )",
           "Microsoft.Extensions.Hosting.Systemd": "[9.0.0, )",
+          "Microsoft.Extensions.Localization.Abstractions": "[9.0.0, )",
           "Npgsql.NodaTime": "[8.0.5, )",
           "Serilog.Sinks.Console": "[6.0.0, )",
           "Serilog.Sinks.Seq": "[8.0.0, )"
@@ -455,6 +456,12 @@
         "dependencies": {
           "Microsoft.Extensions.Hosting": "9.0.0"
         }
+      },
+      "Microsoft.Extensions.Localization.Abstractions": {
+        "type": "CentralTransitive",
+        "requested": "[9.0.0, )",
+        "resolved": "9.0.0",
+        "contentHash": "wc7PaRhPOnio5Csj80b3UgBWA5l6bp28EhGem7gtfpVopcwbkfPb2Sk8Cu6eBnIW3ZNf1YUgYJzwtjzZEM8+iw=="
       },
       "Npgsql.NodaTime": {
         "type": "CentralTransitive",

@@ -77,7 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Using Include="EliteKit.Infrastructure.Core.Attributes.DependentModules" />
-    <Using Include="EliteKit.Infrastructure.Core.Functions.ModLaunchers" />
     <Using Include="EliteKit.Infrastructure.Core.Interfaces.SystemMaintainers" />
   </ItemGroup>
   <ItemGroup>

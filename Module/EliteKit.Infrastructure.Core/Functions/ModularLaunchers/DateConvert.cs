@@ -1,4 +1,4 @@
-﻿namespace EliteKit.Infrastructure.Core.Functions.ModLaunchers;
+﻿namespace EliteKit.Infrastructure.Core.Functions.ModularLaunchers;
 public class DateConvert : JsonConverter<DateTime>
 {
     public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

@@ -27,6 +27,7 @@
     <PackageReference Include="FastEndpoints" />
     <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" />
+    <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" />
     <PackageReference Include="Npgsql.NodaTime" />
     <PackageReference Include="Serilog.Sinks.Console" />
     <PackageReference Include="Serilog.Sinks.Seq" />
@@ -36,11 +37,13 @@
     <Using Include="Autofac.Extensions.DependencyInjection" />
     <Using Include="Coravel.Invocable" />
     <Using Include="Coravel.Scheduling.Schedule.Interfaces" />
+    <Using Include="Dapper" />
     <Using Include="FastEndpoints" />
     <Using Include="FluentValidation" />
+    <Using Include="Npgsql" />
     <Using Include="Serilog" />
-  </ItemGroup>  
-  <ItemGroup>    
+  </ItemGroup>
+  <ItemGroup>
     <Using Include="Microsoft.AspNetCore.Builder" />
     <Using Include="Microsoft.AspNetCore.Http" />
     <Using Include="Microsoft.AspNetCore.Mvc" />
@@ -53,6 +56,7 @@
   <ItemGroup>
     <Using Include="System.Collections.Concurrent" />
     <Using Include="System.ComponentModel" />
+    <Using Include="System.Data" />
     <Using Include="System.Globalization" />
     <Using Include="System.Net" />
     <Using Include="System.Net.NetworkInformation" />
@@ -72,13 +76,21 @@
   </ItemGroup>
   <ItemGroup>
     <Using Include="EliteKit.Infrastructure.Core.Abstracts.BottomStructures" />
+    <Using Include="EliteKit.Infrastructure.Core.Abstracts.InformationModels" />
     <Using Include="EliteKit.Infrastructure.Core.Attributes.DependentModules" />
+    <Using Include="EliteKit.Infrastructure.Core.Attributes.ProfileInformations" />
     <Using Include="EliteKit.Infrastructure.Core.Contracts.FileApplications" />
+    <Using Include="EliteKit.Infrastructure.Core.Contracts.TableInformations" />
     <Using Include="EliteKit.Infrastructure.Core.Contracts.WebApplications" />
     <Using Include="EliteKit.Infrastructure.Core.Enumerates.FileClassifications" />
     <Using Include="EliteKit.Infrastructure.Core.Expansions.CommonExamples" />
-    <Using Include="EliteKit.Infrastructure.Core.Functions.ModLaunchers" />
+    <Using Include="EliteKit.Infrastructure.Core.Expansions.StructureBehaviors" />
+    <Using Include="EliteKit.Infrastructure.Core.Functions.ModularLaunchers" />
     <Using Include="EliteKit.Infrastructure.Core.Functions.UniversalLayouts" />
     <Using Include="EliteKit.Infrastructure.Core.Interfaces.SystemMaintainers" />
+    <Using Include="EliteKit.Infrastructure.Core.Repositories.BaseInstallations" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transfers\HumanResources\" />
   </ItemGroup>
 </Project>

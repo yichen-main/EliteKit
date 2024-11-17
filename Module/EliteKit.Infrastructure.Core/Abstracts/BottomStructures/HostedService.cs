@@ -11,27 +11,12 @@ public abstract class HostedService : BackgroundService
         QuarterHour = 3600 / 4,
         Daily = 3600 * 24,
     }
-    protected async Task ActionAsync(Type type, Func<ValueTask> task)
-    {
-        try
-        {
-            await task().ConfigureAwait(false);
-        }
-        catch (Exception e)
-        {
-            e.Error(type);
-        }
-    }
-    protected Task ActionAsync<T>(in T content, in Func<ValueTask> task) where T : HostedService
-    {
-        return ActionAsync(content.GetType(), task);
-    }
-    protected async Task KeepAsync<T>(T content, Func<ValueTask> task, Action<Exception>? e = default, bool initialSkip = default) where T : HostedService
+    protected async Task KeepAsync<T>(T content, Func<PeriodicTimer, Task> task, Action<Exception>? e = default, bool initialSkip = default) where T : HostedService
     {
         var type = content.GetType();
         if (!Chargers.Any(x => x.Key.IsMatch(type.Name))) Chargers[type.Name] = initialSeconds;
-        PeriodicTimer initialTimer = new(TimeSpan.FromTicks(TimeSpan.TicksPerSecond * Interval.Instant.GetHashCode()));
-        while (await initialTimer.WaitForNextTickAsync().ConfigureAwait(false))
+        PeriodicTimer timer = new(TimeSpan.FromTicks(TimeSpan.TicksPerSecond * Interval.Instant.GetHashCode()));
+        while (await timer.WaitForNextTickAsync().ConfigureAwait(false))
         {
             try
             {
@@ -41,13 +26,13 @@ public abstract class HostedService : BackgroundService
                     if (initialSkip) seconds = Chargers[type.Name];
                 }
                 else seconds = Chargers[type.Name];
-                PeriodicTimer timer = new(TimeSpan.FromTicks(TimeSpan.TicksPerSecond * seconds));
-                while (await timer.WaitForNextTickAsync().ConfigureAwait(false))
+                PeriodicTimer workTimer = new(TimeSpan.FromTicks(TimeSpan.TicksPerSecond * seconds));
+                while (await workTimer.WaitForNextTickAsync().ConfigureAwait(false))
                 {
                     try
                     {
-                        await task().ConfigureAwait(false);
-                        if (seconds != Chargers[type.Name]) timer.Dispose();
+                        await task(timer).ConfigureAwait(false);
+                        if (seconds != Chargers[type.Name]) workTimer.Dispose();
                         Histories.TryRemove(type.Name, out _);
                     }
                     catch (Exception exception)
