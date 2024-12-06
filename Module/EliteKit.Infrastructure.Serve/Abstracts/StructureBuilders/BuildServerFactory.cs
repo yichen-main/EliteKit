@@ -3,10 +3,10 @@ using EliteKit.Infrastructure.Core.Documents.AppSettings;
 using EliteKit.Infrastructure.Core.Expansions.CommonExamples;
 using EliteKit.Infrastructure.Core.Functions.ModularLaunchers;
 using EliteKit.Infrastructure.Core.Functions.UniversalLayouts;
-using EliteKit.Infrastructure.Loader.Functions.MiddlePipelines;
-using EliteKit.Infrastructure.Loader.Functions.StructuralFrames;
+using EliteKit.Infrastructure.Serve.Functions.MiddlePipelines;
+using EliteKit.Infrastructure.Serve.Functions.StructuralFrames;
 
-namespace EliteKit.Infrastructure.Loader.Abstracts.StructureBuilders;
+namespace EliteKit.Infrastructure.Serve.Abstracts.StructureBuilders;
 public abstract class BuildServerFactory<T> : ModuleBase<T> where T : IModularization
 {
     bool Display = true;

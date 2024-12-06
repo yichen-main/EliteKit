@@ -1,15 +1,15 @@
 ﻿using EliteKit.Application.Registration;
 using EliteKit.Infrastructure.Core.Attributes.DependentModules;
-using EliteKit.Infrastructure.Loader;
-using EliteKit.Infrastructure.Loader.Abstracts.StructureBuilders;
-using EliteKit.Infrastructure.Loader.Attributes.SystemMaintainers;
+using EliteKit.Infrastructure.Serve;
+using EliteKit.Infrastructure.Serve.Abstracts.StructureBuilders;
+using EliteKit.Infrastructure.Serve.Attributes.SystemMaintainers;
 using EliteKit.Vehicle.Blazor.Components;
 using FastEndpoints;
 
 namespace EliteKit.Vehicle.Blazor;
 
 [Modular, DependsOn(
-    typeof(EliteKitInfrastructureLoaderModule),
+    typeof(EliteKitInfrastructureServeModule),
     typeof(EliteKitApplicationRegistrationModule))]
 public sealed class ModuleFactory : BuildServerFactory<ModuleFactory>
 {

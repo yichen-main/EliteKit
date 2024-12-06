@@ -1,4 +1,4 @@
-﻿namespace EliteKit.Infrastructure.Loader.Functions.StructuralFrames;
+﻿namespace EliteKit.Infrastructure.Serve.Functions.StructuralFrames;
 internal sealed class DialectLocalizer(FrozenDictionary<string, Dictionary<string, string>> dialects) : IStringLocalizer
 {
     public LocalizedString this[string name]

@@ -1,6 +1,6 @@
 ﻿using EliteKit.Infrastructure.Core.Expansions.CommonExamples;
 
-namespace EliteKit.Infrastructure.Loader.Functions.MiddlePipelines;
+namespace EliteKit.Infrastructure.Serve.Functions.MiddlePipelines;
 internal sealed class ModelConvention : IControllerModelConvention
 {
     public readonly ref struct RESTfulLayout

@@ -1,7 +1,7 @@
 ﻿using EliteKit.Infrastructure.Core.Contracts.WebApplications;
 using EliteKit.Infrastructure.Core.Functions.UniversalLayouts;
 
-namespace EliteKit.Infrastructure.Loader.Functions.MiddlePipelines;
+namespace EliteKit.Infrastructure.Serve.Functions.MiddlePipelines;
 internal sealed class ResponseMiddle(RequestDelegate next)
 {
     public async Task Invoke(HttpContext context)

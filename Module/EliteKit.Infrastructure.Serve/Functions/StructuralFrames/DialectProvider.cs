@@ -1,4 +1,4 @@
-﻿namespace EliteKit.Infrastructure.Loader.Functions.StructuralFrames;
+﻿namespace EliteKit.Infrastructure.Serve.Functions.StructuralFrames;
 internal sealed class DialectProvider(string defaultCulture, CultureInfo[] cultureInfos) : RequestCultureProvider
 {
     public override Task<ProviderCultureResult?> DetermineProviderCultureResult(HttpContext httpContext)

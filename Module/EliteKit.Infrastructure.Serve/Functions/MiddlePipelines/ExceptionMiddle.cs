@@ -1,4 +1,4 @@
-﻿namespace EliteKit.Infrastructure.Loader.Functions.MiddlePipelines;
+﻿namespace EliteKit.Infrastructure.Serve.Functions.MiddlePipelines;
 internal sealed class ExceptionMiddle(IHttpContextAccessor httpContextAccessor) : IExceptionHandler
 {
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)

@@ -8,7 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Module\EliteKit.Application.Registration\EliteKit.Application.Registration.csproj" />
-      <ProjectReference Include="..\..\Module\EliteKit.Infrastructure.Loader\EliteKit.Infrastructure.Loader.csproj" />
+      <ProjectReference Include="..\..\Module\EliteKit.Infrastructure.Serve\EliteKit.Infrastructure.Serve.csproj" />
     </ItemGroup>
 
 </Project>

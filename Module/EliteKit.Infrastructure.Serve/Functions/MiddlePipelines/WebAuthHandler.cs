@@ -1,8 +1,8 @@
 ﻿using EliteKit.Infrastructure.Core.Contracts.WebApplications;
 using EliteKit.Infrastructure.Core.Expansions.CommonExamples;
-using EliteKit.Infrastructure.Loader.Contracts.SystemOverviews;
+using EliteKit.Infrastructure.Serve.Contracts.SystemOverviews;
 
-namespace EliteKit.Infrastructure.Loader.Functions.MiddlePipelines;
+namespace EliteKit.Infrastructure.Serve.Functions.MiddlePipelines;
 internal sealed class WebAuthHandler(IOptionsMonitor<WebAuthOption> options, ILoggerFactory logger, UrlEncoder encoder)
     : AuthenticationHandler<WebAuthOption>(options, logger, encoder)
 {

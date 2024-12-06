@@ -433,7 +433,7 @@
           "Serilog.Sinks.Seq": "[8.0.0, )"
         }
       },
-      "elitekit.infrastructure.loader": {
+      "elitekit.infrastructure.serve": {
         "type": "Project",
         "dependencies": {
           "EliteKit.Infrastructure.Core": "[9.11.1, )",

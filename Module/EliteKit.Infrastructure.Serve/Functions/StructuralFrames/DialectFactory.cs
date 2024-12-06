@@ -1,6 +1,6 @@
 ﻿using EliteKit.Infrastructure.Core.Expansions.CommonExamples;
 
-namespace EliteKit.Infrastructure.Loader.Functions.StructuralFrames;
+namespace EliteKit.Infrastructure.Serve.Functions.StructuralFrames;
 public sealed class DialectFactory : IStringLocalizerFactory
 {
     public IStringLocalizer Create(Type resourceSource) => new DialectLocalizer(InternalExpand.Dialects.ToFrozenDictionary());

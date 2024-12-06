@@ -1,4 +1,4 @@
-﻿namespace EliteKit.Infrastructure.Loader.Attributes.SystemMaintainers;
+﻿namespace EliteKit.Infrastructure.Serve.Attributes.SystemMaintainers;
 
 [AttributeUsage(AttributeTargets.Class)]
 public sealed class ModularAttribute(string name = nameof(AsyncCallback)) : Attribute
