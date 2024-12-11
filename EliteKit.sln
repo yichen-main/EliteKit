@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliteKit.Application.Regist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliteKit.Infrastructure.Serve", "Module\EliteKit.Infrastructure.Serve\EliteKit.Infrastructure.Serve.csproj", "{A979919E-7878-497F-9416-B993079FB637}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1E023DEB-6BB5-4AB8-9402-25791C1CEB30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliteKit.Application.Registration.Tests", "EliteKit.Application.Registration.Tests\EliteKit.Application.Registration.Tests.csproj", "{1AAFD99A-0E06-4F1C-A346-7013F1989FD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,10 @@ Global
 		{A979919E-7878-497F-9416-B993079FB637}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A979919E-7878-497F-9416-B993079FB637}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A979919E-7878-497F-9416-B993079FB637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AAFD99A-0E06-4F1C-A346-7013F1989FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AAFD99A-0E06-4F1C-A346-7013F1989FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AAFD99A-0E06-4F1C-A346-7013F1989FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AAFD99A-0E06-4F1C-A346-7013F1989FD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +59,7 @@ Global
 		{AE8E0BAC-08C8-4FE2-BA36-6D3262169022} = {667AE1C3-5473-4F23-8B25-521CF3DE0A30}
 		{A78F7BEF-4573-49D3-B7CB-FAC3854E8A17} = {667AE1C3-5473-4F23-8B25-521CF3DE0A30}
 		{A979919E-7878-497F-9416-B993079FB637} = {667AE1C3-5473-4F23-8B25-521CF3DE0A30}
+		{1AAFD99A-0E06-4F1C-A346-7013F1989FD4} = {1E023DEB-6BB5-4AB8-9402-25791C1CEB30}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB484C3B-3576-43D2-907C-716FB2B507FF}

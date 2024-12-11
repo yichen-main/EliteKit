@@ -5,11 +5,12 @@ using EliteKit.Infrastructure.Serve.Abstracts.StructureBuilders;
 using EliteKit.Infrastructure.Serve.Attributes.SystemMaintainers;
 using EliteKit.Vehicle.Blazor.Components;
 using FastEndpoints;
+using Scalar.AspNetCore;
 
 namespace EliteKit.Vehicle.Blazor;
 
 [Modular, DependsOn(
-    typeof(EliteKitInfrastructureServeModule),
+     typeof(EliteKitInfrastructureServeModule),
     typeof(EliteKitApplicationRegistrationModule))]
 public sealed class ModuleFactory : BuildServerFactory<ModuleFactory>
 {
@@ -24,6 +25,7 @@ public sealed class ModuleFactory : BuildServerFactory<ModuleFactory>
             app.UseExceptionHandler("/Error", createScopeForErrors: true);
             app.UseHsts();
         }
+        app.MapScalarApiReference();
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseAntiforgery();

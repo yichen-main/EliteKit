@@ -11,4 +11,9 @@
       <ProjectReference Include="..\..\Module\EliteKit.Infrastructure.Serve\EliteKit.Infrastructure.Serve.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Scalar.AspNetCore" />
+      <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    </ItemGroup>
+
 </Project>
