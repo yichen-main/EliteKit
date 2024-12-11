@@ -1,19 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
-    <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>enable</ImplicitUsings>
-    </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\Module\EliteKit.Application.Registration\EliteKit.Application.Registration.csproj" />
-      <ProjectReference Include="..\..\Module\EliteKit.Infrastructure.Serve\EliteKit.Infrastructure.Serve.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Scalar.AspNetCore" />
-      <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
-    </ItemGroup>
-
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" />
+    <PackageReference Include="Scalar.AspNetCore" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Module\EliteKit.Application.ProcessWorkshop\EliteKit.Application.ProcessWorkshop.csproj" />
+    <ProjectReference Include="..\..\Module\EliteKit.Infrastructure.Serve\EliteKit.Infrastructure.Serve.csproj" />
+  </ItemGroup>
 </Project>

@@ -24,6 +24,7 @@
     <ProjectReference Include="..\EliteKit.Infrastructure.Core\EliteKit.Infrastructure.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" />
     <PackageReference Include="Spectre.Console" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
   </ItemGroup>
@@ -78,8 +79,5 @@
   <ItemGroup>
     <Using Include="EliteKit.Infrastructure.Core.Attributes.DependentModules" />
     <Using Include="EliteKit.Infrastructure.Core.Interfaces.SystemMaintainers" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\GlobalParameters\" />
   </ItemGroup>
 </Project>

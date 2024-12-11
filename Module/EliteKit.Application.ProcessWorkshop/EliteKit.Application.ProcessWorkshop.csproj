@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EliteKit.Domain.FacilityManagement\EliteKit.Domain.FacilityManagement.csproj" />
     <ProjectReference Include="..\EliteKit.Domain.HumanResources\EliteKit.Domain.HumanResources.csproj" />
   </ItemGroup>
 

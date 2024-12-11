@@ -1,6 +1,6 @@
 ﻿using FastEndpoints;
 
-namespace EliteKit.Application.Registration.Endpoints;
+namespace EliteKit.Application.ProcessWorkshop.Endpoints;
 public class HealthEndpoint : Endpoint<MyRequest, MyResponse>
 {
     public override void Configure()

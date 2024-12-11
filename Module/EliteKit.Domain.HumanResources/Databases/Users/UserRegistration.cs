@@ -1,6 +1,6 @@
-﻿namespace EliteKit.Domain.HumanResources.Databases;
+﻿namespace EliteKit.Domain.HumanResources.Databases.Users;
 
-public class User
+public class UserRegistration
 {
     public string Id { get; set; }
     public string Name { get; set; }
